@@ -1,0 +1,7 @@
+platform :<#ios#>, "<#6.0#>"
+
+pod "POP"
+
+target :<#TargetName#>Tests, :exclusive => true do
+  # pod 'Kiwi'
+end
