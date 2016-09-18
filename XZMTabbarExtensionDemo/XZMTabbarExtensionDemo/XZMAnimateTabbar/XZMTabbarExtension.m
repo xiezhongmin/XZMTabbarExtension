@@ -241,7 +241,7 @@ static NSString *AssociatedButtonKey;
 {
     id instance = [self swizzled_initWithFrame:frame];
     
-    UIButton  *centerButton = objc_getAssociatedObject(self, &AssociatedButtonKey);
+    UIButton *centerButton = objc_getAssociatedObject(self, &AssociatedButtonKey);
     if (!centerButton) {
         centerButton = [UIButton buttonWithType:UIButtonTypeCustom];
         objc_setAssociatedObject(self, &AssociatedButtonKey, centerButton, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -257,7 +257,9 @@ static NSString *AssociatedButtonKey;
 
     [self setValue:[NSValue valueWithCGRect:self.bounds] forKeyPath:@"_backgroundView.frame"];
     
-    UIButton  *centerButton = objc_getAssociatedObject(self, &AssociatedButtonKey);
+    UIButton *centerButton = objc_getAssociatedObject(self, &AssociatedButtonKey);
+    
+    if (centerButton == nil) return;
     
     centerButton.bounds = CGRectMake(0, 0, centerButton.currentBackgroundImage.size.width, centerButton.currentBackgroundImage.size.height);
     CGFloat buttonW = self.frame.size.width / (self.items.count + 1);
