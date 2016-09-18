@@ -213,27 +213,42 @@ static NSString *AssociatedButtonKey;
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Method originalMethod = class_getInstanceMethod([self class], @selector(layoutSubviews));
-        Method swizzledMethod = class_getInstanceMethod([self class], @selector(swizzled_layoutSubviews));
-        method_exchangeImplementations(originalMethod, swizzledMethod);
-    });
+        [self xzm_swizzledMethodWithOriginalSelector:@selector(initWithFrame:)   swizzledSelector:@selector(swizzled_initWithFrame:)];
+        [self xzm_swizzledMethodWithOriginalSelector:@selector(layoutSubviews) swizzledSelector:@selector(swizzled_layoutSubviews)];
+        });
 }
 
-- (instancetype)initWithFrame:(CGRect)frame
++ (void)xzm_swizzledMethodWithOriginalSelector:(SEL)originalSelector
+                              swizzledSelector:(SEL)swizzledSelector
 {
-    if (self = [super initWithFrame:frame]) {
-        
-        UIButton  *centerButton = objc_getAssociatedObject(self, &AssociatedButtonKey);
-        
-        if (!centerButton) {
-            centerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            objc_setAssociatedObject(self, &AssociatedButtonKey, centerButton, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        }
+    Method originalMethod = class_getInstanceMethod([self class], originalSelector);
     
-        [self addSubview:centerButton];
+    Method swizzledMethod = class_getInstanceMethod([self class], swizzledSelector);
+    
+    BOOL didAddMethod = class_addMethod([self class], originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
+    
+    if (didAddMethod) {
+        class_replaceMethod([self class], swizzledSelector,
+                            method_getImplementation(originalMethod),
+                            method_getTypeEncoding(originalMethod));
     }
+    else {
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+
+- (instancetype)swizzled_initWithFrame:(CGRect)frame
+{
+    id instance = [self swizzled_initWithFrame:frame];
     
-    return self;
+    UIButton  *centerButton = objc_getAssociatedObject(self, &AssociatedButtonKey);
+    if (!centerButton) {
+        centerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        objc_setAssociatedObject(self, &AssociatedButtonKey, centerButton, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    [self addSubview:centerButton];
+   
+    return instance;
 }
 
 - (void)swizzled_layoutSubviews
