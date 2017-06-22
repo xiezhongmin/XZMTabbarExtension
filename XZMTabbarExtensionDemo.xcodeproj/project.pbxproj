@@ -41,6 +41,8 @@
 		ABEAA81B1EFBDA7F003113E5 /* XZMPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEAA8151EFBDA7F003113E5 /* XZMPublishViewController.m */; };
 		ABEAA81C1EFBDA7F003113E5 /* XZMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEAA8181EFBDA7F003113E5 /* XZMButton.m */; };
 		ABEAA8201EFBDA86003113E5 /* XZMTabbarExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEAA81F1EFBDA86003113E5 /* XZMTabbarExtension.m */; };
+		ACD34AEA1EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD34AE91EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.m */; };
+		ACD34AF01EFC20AD001A74A2 /* UIView+XZMTabbarExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD34AEF1EFC20AD001A74A2 /* UIView+XZMTabbarExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +144,10 @@
 		ABEAA8181EFBDA7F003113E5 /* XZMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZMButton.m; sourceTree = "<group>"; };
 		ABEAA81E1EFBDA86003113E5 /* XZMTabbarExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZMTabbarExtension.h; sourceTree = "<group>"; };
 		ABEAA81F1EFBDA86003113E5 /* XZMTabbarExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZMTabbarExtension.m; sourceTree = "<group>"; };
+		ACD34AE81EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+XZMTabBadgePoint.h"; sourceTree = "<group>"; };
+		ACD34AE91EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+XZMTabBadgePoint.m"; sourceTree = "<group>"; };
+		ACD34AEE1EFC20AD001A74A2 /* UIView+XZMTabbarExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XZMTabbarExtension.h"; sourceTree = "<group>"; };
+		ACD34AEF1EFC20AD001A74A2 /* UIView+XZMTabbarExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XZMTabbarExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +370,10 @@
 			children = (
 				ABEAA81E1EFBDA86003113E5 /* XZMTabbarExtension.h */,
 				ABEAA81F1EFBDA86003113E5 /* XZMTabbarExtension.m */,
+				ACD34AE81EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.h */,
+				ACD34AE91EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.m */,
+				ACD34AEE1EFC20AD001A74A2 /* UIView+XZMTabbarExtension.h */,
+				ACD34AEF1EFC20AD001A74A2 /* UIView+XZMTabbarExtension.m */,
 			);
 			path = XZMTabbarExtension;
 			sourceTree = "<group>";
@@ -503,6 +513,7 @@
 			files = (
 				041EAB131C1168EF00F390B0 /* AppDelegate.m in Sources */,
 				ABEAA7FB1EFBDA71003113E5 /* POPAnimationRuntime.mm in Sources */,
+				ACD34AEA1EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.m in Sources */,
 				ABEAA8051EFBDA71003113E5 /* POPPropertyAnimation.mm in Sources */,
 				ABEAA80C1EFBDA78003113E5 /* UIView+XZMFrame.m in Sources */,
 				ABEAA7F91EFBDA71003113E5 /* POPAnimationEvent.mm in Sources */,
@@ -522,6 +533,7 @@
 				ABEAA7FA1EFBDA71003113E5 /* POPAnimationExtras.mm in Sources */,
 				ABEAA8041EFBDA71003113E5 /* POPMath.mm in Sources */,
 				ABEAA81B1EFBDA7F003113E5 /* XZMPublishViewController.m in Sources */,
+				ACD34AF01EFC20AD001A74A2 /* UIView+XZMTabbarExtension.m in Sources */,
 				ABEAA7FC1EFBDA71003113E5 /* POPAnimationTracer.mm in Sources */,
 				ABEAA7F81EFBDA71003113E5 /* POPAnimation.mm in Sources */,
 				ABEAA81A1EFBDA7F003113E5 /* XZMViewController.m in Sources */,

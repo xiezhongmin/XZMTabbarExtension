@@ -7,6 +7,7 @@
 //
 
 #import "XZMTabbarExtension.h"
+#import "UIView+XZMTabbarExtension.h"
 #import <objc/runtime.h>
 
 #define kScreenW [UIScreen mainScreen].bounds.size.width
@@ -187,23 +188,11 @@ static NSString *AssociatedButtonKey;
 - (NSArray *)tabBarButtonFromTabBarSubviews:(NSArray *)tabBarSubviews {
     NSMutableArray *tabBarButtonArray = [NSMutableArray arrayWithCapacity:tabBarSubviews.count - 1];
     [tabBarSubviews enumerateObjectsUsingBlock:^(UIView * _Nonnull subview, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([self isTabBarButton:subview]) {
+        if ([subview duke_isTabBarButton]) {
             [tabBarButtonArray addObject:subview];
         }
     }];
     return [tabBarButtonArray copy];
-}
-
-- (BOOL)isTabBarButton:(UIView *)view {
-    BOOL isKindOfClass = [view isKindOfClass:[UIControl class]];
-    BOOL isClass = [view isMemberOfClass:[UIControl class]];
-    BOOL isKind = isKindOfClass && !isClass;
-    if (!isKind) {
-        return NO;
-    }
-    NSString *classString = NSStringFromClass([view class]);
-    BOOL isTabBarClass = [classString hasPrefix:@"UITabBar"];
-    return isTabBarClass;
 }
 @end
 
