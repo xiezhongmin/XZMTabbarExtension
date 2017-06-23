@@ -1,37 +1,28 @@
 //
-//  XZMAnimateTabbar.h
-//  XZMAnimateTabbarDemo
+//  XZMTabbarExtension.h
+//  XZMTabbarExtensionDemo
 //
-//  Created by Mac_Nelson on 15/12/2.
-//  Copyright © 2015年 Mac_Duke. All rights reserved.
+//  Created by duke on 2017/6/23.
+//  Copyright © 2017年 Mac_Duke. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+///****** 史上最简单的定制tabBar个性化按钮  配置只需要一个方法 github: https://github.com/xiezhongmin/XZMTabbarExtension *******//
 
-@protocol XZMCustomButton <NSObject>
+#import <Foundation/Foundation.h>
 
-/**
- 设置自定义按钮在TabBar中的位置，(默认是在中间，不是奇数会错误提示)
+#ifndef _XZMTabbarExtension_
+    #define _XZMTabbarExtension_
 
- @param index index
- */
-- (void)setTabBarIndex:(NSInteger)index;
+#if __has_include(<XZMTabbarExtension/XZMTabbarExtension.h>)
 
-/**
- 设置自定义按钮Y轴在TabBar中的偏移量, 建议在按钮超出了 tabbar 的边界时实现该方法,
- 如果不实现该方法，内部会自动进行比对，预设一个较为合适的位置，如果实现了该方法，预设的逻辑将失效
- @param offsetY 偏移量
- */
-- (void)setCenterOffsetY:(CGFloat)offsetY;
+    #import <XZMTabbarExtension/UITabBar+XZMTabbarExtension.h>
+    #import <XZMTabbarExtension/UITabBarItem+XZMTabBadgePoint.h>
 
-@end
+#else
 
-@interface UITabBar (XZMTabbarExtension)
-// 设置个性化中间按钮
-- (void)configTabBarOfCustomButton:(UIButton <XZMCustomButton> *_Nullable(^_Nullable)())configCustomButtonBlock;
+    #import "UITabBar+XZMTabbarExtension.h"
+    #import "UITabBarItem+XZMTabBadgePoint.h"
 
-@end
+#endif /* __has_include */
 
-@interface UIButton (XZMCustomTabBar) <XZMCustomButton>
-
-@end
+#endif /* _XZMTabbarExtension_ */

@@ -6,7 +6,8 @@
 //  Copyright © 2015年 Mac_Duke. All rights reserved.
 //
 
-#import "XZMTabbarExtension.h"
+#import "UITabBar+XZMTabbarExtension.h"
+#import "UIView+XZMTabbarExtension.h"
 #import <objc/runtime.h>
 
 #define kScreenW [UIScreen mainScreen].bounds.size.width
@@ -151,7 +152,7 @@ static NSString *AssociatedButtonKey;
     return nil;
 }
 
-- (void)configTabBarOfCustomButton:(UIButton <XZMCustomButton> *_Nullable(^_Nullable)())configCustomButtonBlock {
+- (void)duke_configTabBarOfCustomButton:(UIButton <XZMCustomButton> *_Nullable(^_Nullable)())configCustomButtonBlock {
     if (configCustomButtonBlock) {
         UIButton <XZMCustomButton> *customButton = configCustomButtonBlock();
         if (!customButton) return;
@@ -187,28 +188,16 @@ static NSString *AssociatedButtonKey;
 - (NSArray *)tabBarButtonFromTabBarSubviews:(NSArray *)tabBarSubviews {
     NSMutableArray *tabBarButtonArray = [NSMutableArray arrayWithCapacity:tabBarSubviews.count - 1];
     [tabBarSubviews enumerateObjectsUsingBlock:^(UIView * _Nonnull subview, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([self isTabBarButton:subview]) {
+        if ([subview duke_isTabBarButton]) {
             [tabBarButtonArray addObject:subview];
         }
     }];
     return [tabBarButtonArray copy];
 }
-
-- (BOOL)isTabBarButton:(UIView *)view {
-    BOOL isKindOfClass = [view isKindOfClass:[UIControl class]];
-    BOOL isClass = [view isMemberOfClass:[UIControl class]];
-    BOOL isKind = isKindOfClass && !isClass;
-    if (!isKind) {
-        return NO;
-    }
-    NSString *classString = NSStringFromClass([view class]);
-    BOOL isTabBarClass = [classString hasPrefix:@"UITabBar"];
-    return isTabBarClass;
-}
 @end
 
 @implementation UIButton (XZMCustomButton)
-- (void)setTabBarIndex:(NSInteger)index {
+- (void)duke_setTabBarIndex:(NSInteger)index {
     if (XZMCustomButtonIndex != index) {
         [self willChangeValueForKey:@"index"];
         XZMCustomButtonIndex = index;
@@ -216,7 +205,7 @@ static NSString *AssociatedButtonKey;
     }
 }
 
-- (void)setCenterOffsetY:(CGFloat)offsetY {
+- (void)duke_setCenterOffsetY:(CGFloat)offsetY {
     if (XZMCustomButtonOffsetY != offsetY) {
         [self willChangeValueForKey:@"offsetY"];
         XZMCustomButtonOffsetY = offsetY;

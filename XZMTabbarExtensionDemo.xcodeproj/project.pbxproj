@@ -14,6 +14,9 @@
 		041EAB1E1C1168EF00F390B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041EAB1C1C1168EF00F390B0 /* LaunchScreen.storyboard */; };
 		041EAB291C1168EF00F390B0 /* XZMTabbarExtensionDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EAB281C1168EF00F390B0 /* XZMTabbarExtensionDemoTests.m */; };
 		041EAB341C1168EF00F390B0 /* XZMTabbarExtensionDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EAB331C1168EF00F390B0 /* XZMTabbarExtensionDemoUITests.m */; };
+		AB10E3021EFCF63F00BC1722 /* UITabBar+XZMTabbarExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AB10E2FC1EFCF63F00BC1722 /* UITabBar+XZMTabbarExtension.m */; };
+		AB10E3031EFCF63F00BC1722 /* UITabBarItem+XZMTabBadgePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = AB10E2FE1EFCF63F00BC1722 /* UITabBarItem+XZMTabBadgePoint.m */; };
+		AB10E3041EFCF63F00BC1722 /* UIView+XZMTabbarExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AB10E3001EFCF63F00BC1722 /* UIView+XZMTabbarExtension.m */; };
 		ABEAA7F41EFBDA71003113E5 /* pop-ios-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABEAA7BD1EFBDA71003113E5 /* pop-ios-Info.plist */; };
 		ABEAA7F51EFBDA71003113E5 /* pop-osx-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABEAA7BE1EFBDA71003113E5 /* pop-osx-Info.plist */; };
 		ABEAA7F61EFBDA71003113E5 /* pop-tvos-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABEAA7BF1EFBDA71003113E5 /* pop-tvos-Info.plist */; };
@@ -40,9 +43,6 @@
 		ABEAA81A1EFBDA7F003113E5 /* XZMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEAA8131EFBDA7F003113E5 /* XZMViewController.m */; };
 		ABEAA81B1EFBDA7F003113E5 /* XZMPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEAA8151EFBDA7F003113E5 /* XZMPublishViewController.m */; };
 		ABEAA81C1EFBDA7F003113E5 /* XZMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEAA8181EFBDA7F003113E5 /* XZMButton.m */; };
-		ABEAA8201EFBDA86003113E5 /* UITabBar+XZMTabbarExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEAA81F1EFBDA86003113E5 /* UITabBar+XZMTabbarExtension.m */; };
-		ACD34AEA1EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD34AE91EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.m */; };
-		ACD34AF01EFC20AD001A74A2 /* UIView+XZMTabbarExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD34AEF1EFC20AD001A74A2 /* UIView+XZMTabbarExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,13 @@
 		041EAB2F1C1168EF00F390B0 /* XZMTabbarExtensionDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XZMTabbarExtensionDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		041EAB331C1168EF00F390B0 /* XZMTabbarExtensionDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZMTabbarExtensionDemoUITests.m; sourceTree = "<group>"; };
 		041EAB351C1168EF00F390B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB2B4E1F1EFCB3D900477351 /* XZMTabbarExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZMTabbarExtension.h; sourceTree = "<group>"; };
+		AB10E2FB1EFCF63F00BC1722 /* UITabBar+XZMTabbarExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+XZMTabbarExtension.h"; sourceTree = "<group>"; };
+		AB10E2FC1EFCF63F00BC1722 /* UITabBar+XZMTabbarExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+XZMTabbarExtension.m"; sourceTree = "<group>"; };
+		AB10E2FD1EFCF63F00BC1722 /* UITabBarItem+XZMTabBadgePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+XZMTabBadgePoint.h"; sourceTree = "<group>"; };
+		AB10E2FE1EFCF63F00BC1722 /* UITabBarItem+XZMTabBadgePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+XZMTabBadgePoint.m"; sourceTree = "<group>"; };
+		AB10E2FF1EFCF63F00BC1722 /* UIView+XZMTabbarExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XZMTabbarExtension.h"; sourceTree = "<group>"; };
+		AB10E3001EFCF63F00BC1722 /* UIView+XZMTabbarExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XZMTabbarExtension.m"; sourceTree = "<group>"; };
+		AB10E3011EFCF63F00BC1722 /* XZMTabbarExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZMTabbarExtension.h; sourceTree = "<group>"; };
 		ABEAA7BC1EFBDA71003113E5 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		ABEAA7BD1EFBDA71003113E5 /* pop-ios-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pop-ios-Info.plist"; sourceTree = "<group>"; };
 		ABEAA7BE1EFBDA71003113E5 /* pop-osx-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pop-osx-Info.plist"; sourceTree = "<group>"; };
@@ -143,12 +149,6 @@
 		ABEAA8151EFBDA7F003113E5 /* XZMPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZMPublishViewController.m; sourceTree = "<group>"; };
 		ABEAA8171EFBDA7F003113E5 /* XZMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZMButton.h; sourceTree = "<group>"; };
 		ABEAA8181EFBDA7F003113E5 /* XZMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZMButton.m; sourceTree = "<group>"; };
-		ABEAA81E1EFBDA86003113E5 /* UITabBar+XZMTabbarExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+XZMTabbarExtension.h"; sourceTree = "<group>"; };
-		ABEAA81F1EFBDA86003113E5 /* UITabBar+XZMTabbarExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+XZMTabbarExtension.m"; sourceTree = "<group>"; };
-		ACD34AE81EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+XZMTabBadgePoint.h"; sourceTree = "<group>"; };
-		ACD34AE91EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+XZMTabBadgePoint.m"; sourceTree = "<group>"; };
-		ACD34AEE1EFC20AD001A74A2 /* UIView+XZMTabbarExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XZMTabbarExtension.h"; sourceTree = "<group>"; };
-		ACD34AEF1EFC20AD001A74A2 /* UIView+XZMTabbarExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XZMTabbarExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +199,7 @@
 		041EAB0D1C1168EF00F390B0 /* XZMTabbarExtensionDemo */ = {
 			isa = PBXGroup;
 			children = (
-				ABEAA81D1EFBDA86003113E5 /* XZMTabbarExtension */,
+				AB10E2FA1EFCF63F00BC1722 /* XZMTabbarExtension */,
 				ABEAA80D1EFBDA7F003113E5 /* Class */,
 				ABEAA8091EFBDA78003113E5 /* Category */,
 				ABEAA7BA1EFBDA71003113E5 /* Lib */,
@@ -238,6 +238,20 @@
 				041EAB351C1168EF00F390B0 /* Info.plist */,
 			);
 			path = XZMTabbarExtensionDemoUITests;
+			sourceTree = "<group>";
+		};
+		AB10E2FA1EFCF63F00BC1722 /* XZMTabbarExtension */ = {
+			isa = PBXGroup;
+			children = (
+				AB10E3011EFCF63F00BC1722 /* XZMTabbarExtension.h */,
+				AB10E2FB1EFCF63F00BC1722 /* UITabBar+XZMTabbarExtension.h */,
+				AB10E2FC1EFCF63F00BC1722 /* UITabBar+XZMTabbarExtension.m */,
+				AB10E2FD1EFCF63F00BC1722 /* UITabBarItem+XZMTabBadgePoint.h */,
+				AB10E2FE1EFCF63F00BC1722 /* UITabBarItem+XZMTabBadgePoint.m */,
+				AB10E2FF1EFCF63F00BC1722 /* UIView+XZMTabbarExtension.h */,
+				AB10E3001EFCF63F00BC1722 /* UIView+XZMTabbarExtension.m */,
+			);
+			path = XZMTabbarExtension;
 			sourceTree = "<group>";
 		};
 		ABEAA7BA1EFBDA71003113E5 /* Lib */ = {
@@ -364,20 +378,6 @@
 				ABEAA8181EFBDA7F003113E5 /* XZMButton.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		ABEAA81D1EFBDA86003113E5 /* XZMTabbarExtension */ = {
-			isa = PBXGroup;
-			children = (
-				AB2B4E1F1EFCB3D900477351 /* XZMTabbarExtension.h */,
-				ABEAA81E1EFBDA86003113E5 /* UITabBar+XZMTabbarExtension.h */,
-				ABEAA81F1EFBDA86003113E5 /* UITabBar+XZMTabbarExtension.m */,
-				ACD34AE81EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.h */,
-				ACD34AE91EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.m */,
-				ACD34AEE1EFC20AD001A74A2 /* UIView+XZMTabbarExtension.h */,
-				ACD34AEF1EFC20AD001A74A2 /* UIView+XZMTabbarExtension.m */,
-			);
-			path = XZMTabbarExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,7 +515,7 @@
 			files = (
 				041EAB131C1168EF00F390B0 /* AppDelegate.m in Sources */,
 				ABEAA7FB1EFBDA71003113E5 /* POPAnimationRuntime.mm in Sources */,
-				ACD34AEA1EFC03AA001A74A2 /* UITabBarItem+XZMTabBadgePoint.m in Sources */,
+				AB10E3031EFCF63F00BC1722 /* UITabBarItem+XZMTabBadgePoint.m in Sources */,
 				ABEAA8051EFBDA71003113E5 /* POPPropertyAnimation.mm in Sources */,
 				ABEAA80C1EFBDA78003113E5 /* UIView+XZMFrame.m in Sources */,
 				ABEAA7F91EFBDA71003113E5 /* POPAnimationEvent.mm in Sources */,
@@ -529,14 +529,14 @@
 				ABEAA8081EFBDA71003113E5 /* TransformationMatrix.cpp in Sources */,
 				ABEAA8031EFBDA71003113E5 /* POPLayerExtras.mm in Sources */,
 				ABEAA8011EFBDA71003113E5 /* POPDecayAnimation.mm in Sources */,
-				ABEAA8201EFBDA86003113E5 /* UITabBar+XZMTabbarExtension.m in Sources */,
 				ABEAA7FE1EFBDA71003113E5 /* POPBasicAnimation.mm in Sources */,
 				ABEAA8061EFBDA71003113E5 /* POPSpringAnimation.mm in Sources */,
 				ABEAA7FA1EFBDA71003113E5 /* POPAnimationExtras.mm in Sources */,
 				ABEAA8041EFBDA71003113E5 /* POPMath.mm in Sources */,
 				ABEAA81B1EFBDA7F003113E5 /* XZMPublishViewController.m in Sources */,
-				ACD34AF01EFC20AD001A74A2 /* UIView+XZMTabbarExtension.m in Sources */,
 				ABEAA7FC1EFBDA71003113E5 /* POPAnimationTracer.mm in Sources */,
+				AB10E3041EFCF63F00BC1722 /* UIView+XZMTabbarExtension.m in Sources */,
+				AB10E3021EFCF63F00BC1722 /* UITabBar+XZMTabbarExtension.m in Sources */,
 				ABEAA7F81EFBDA71003113E5 /* POPAnimation.mm in Sources */,
 				ABEAA81A1EFBDA7F003113E5 /* XZMViewController.m in Sources */,
 				ABEAA7F71EFBDA71003113E5 /* POPAnimatableProperty.mm in Sources */,
