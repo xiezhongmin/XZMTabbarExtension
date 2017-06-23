@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = 'XZMTabbarExtension'
-    s.version      = '1.0.0'
+    s.version      = '1.0.1'
     s.summary      = '史上最简单的定制tabBar个性化按钮 只需要一个方法'
     s.homepage     = 'https://github.com/xiezhongmin/XZMTabbarExtension'
     s.license      = 'MIT'
