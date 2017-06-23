@@ -20,7 +20,7 @@
     UIControl *tabBarButton = DUKE_TABBARBUTTON;
     UIView *badgePointView = objc_getAssociatedObject(tabBarButton, _cmd);
     
-    if (badgePointView == nil) {
+    if (badgePointView == nil && tabBarButton) {
         UIView *defaultBadgePointView = [[UIView alloc] init];
         [defaultBadgePointView setTranslatesAutoresizingMaskIntoConstraints:NO];
         defaultBadgePointView.backgroundColor = DUKE_DEFAULT_BADGEPOINT_COLOR;
@@ -45,11 +45,14 @@
 - (void)duke_setShowBadgePoint:(BOOL)showBadgePoint {
     if (showBadgePoint && self.duke_badgePointView.superview == nil) {
         UIControl *tabBarButton = DUKE_TABBARBUTTON;
+        if (tabBarButton == nil) {
+            NSLog(@"XZMTabbarExtension Error: tabBarButton还未初始化");
+            return;
+        }
         [tabBarButton addSubview:self.duke_badgePointView];
         [tabBarButton bringSubviewToFront:self.duke_badgePointView];
         self.duke_badgePointView.layer.zPosition = MAXFLOAT;
         self.duke_badgePointView.layer.cornerRadius = (self.duke_badgePointRadius ?: DUKE_DEFAULT_BADGEPOINT_RADIUS);
-        
         // X constraint
         [tabBarButton addConstraint:
          [NSLayoutConstraint constraintWithItem:self.duke_badgePointView
@@ -109,9 +112,15 @@
 }
 
 - (void)duke_setBadgePointRadius:(CGFloat)badgePointRadius {
-    objc_setAssociatedObject(DUKE_TABBARBUTTON, _cmd, @(badgePointRadius), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self.duke_badgePointView removeFromSuperview];
-    [self duke_setShowBadgePoint:YES];
+    CGFloat lastBadgePointRadius = self.duke_badgePointRadius;
+    
+    if (lastBadgePointRadius != badgePointRadius) {
+        [self willChangeValueForKey:@"badgePointRadius"];
+        objc_setAssociatedObject(DUKE_TABBARBUTTON, _cmd, @(badgePointRadius), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self.duke_badgePointView removeFromSuperview];
+        [self duke_setShowBadgePoint:YES];
+        [self didChangeValueForKey:@"badgePointRadius"];
+    }
 }
 
 - (CGFloat)duke_badgePointRadius {
@@ -121,7 +130,15 @@
 }
 
 - (void)duke_setBadgePointOffset:(UIOffset)badgePointOffset {
-    objc_setAssociatedObject(DUKE_TABBARBUTTON, _cmd, [NSValue valueWithUIOffset:badgePointOffset], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    UIOffset lastBadgePointOffset = self.duke_badgePointOffset;
+    
+    if (!UIOffsetEqualToOffset(lastBadgePointOffset, badgePointOffset)) {
+        [self willChangeValueForKey:@"badgePointRadius"];
+        objc_setAssociatedObject(DUKE_TABBARBUTTON, _cmd, [NSValue valueWithUIOffset:badgePointOffset], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self.duke_badgePointView removeFromSuperview];
+        [self duke_setShowBadgePoint:YES];
+        [self didChangeValueForKey:@"badgePointRadius"];
+    }
 }
 
 - (UIOffset)duke_badgePointOffset {

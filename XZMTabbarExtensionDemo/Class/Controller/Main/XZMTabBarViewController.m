@@ -11,7 +11,7 @@
 #import "XZMViewController.h"
 #import "XZMTabbarExtension.h"
 #import "XZMPublishViewController.h"
-@interface XZMTabBarViewController ()
+@interface XZMTabBarViewController () <UITabBarControllerDelegate>
 
 @end
 
@@ -50,14 +50,19 @@
     /// 史上最简单的定制tabBar个性化按钮 只需要一个方法
     ///
     /// 配置tabBar自定义个性化按钮
-    [self.tabBar configTabBarOfCustomButton:^UIButton <XZMCustomButton> * _Nullable{
+    [self.tabBar duke_configTabBarOfCustomButton:^UIButton <XZMCustomButton> * _Nullable{
         UIButton <XZMCustomButton> *customButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [customButton setBackgroundImage:[UIImage imageNamed:@"hood"] forState:UIControlStateNormal];
         [customButton setBackgroundImage:[UIImage imageNamed:@"hood-selected"] forState:UIControlStateSelected];
         [customButton addTarget:self action:@selector(chickCenterButton) forControlEvents:UIControlEventTouchUpInside];
-        [customButton setCenterOffsetY:-13];
+        [customButton duke_setCenterOffsetY:-13];
         return customButton;
     }];
+    
+    // 默认选中首页
+    [self tabBarController:self didSelectViewController:self.viewControllers.firstObject];
+    
+    self.delegate = self;
 }
 
 - (void)addChildViewController {
@@ -88,8 +93,21 @@
     
     childVc.tabBarItem.image = norImage;
     childVc.tabBarItem.selectedImage = selImage;
-    
     [self addChildViewController:nav];
 }
 
+#pragma make - UITabBarControllerDelegate
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    UITabBarItem *item = [(UINavigationController *)viewController tabBarItem];
+    if ([item duke_badgePointHidden]) {
+        [item setBadgeValue:nil];
+        [item duke_setBadgePointHidden:NO];
+    } else {
+        [item duke_setBadgePointHidden:YES];
+        if ([item.title isEqualToString:@"同城"] || [item.title isEqualToString:@"我的"]) {
+            return;
+        }
+        [item setBadgeValue:@"3"];
+    }
+}
 @end

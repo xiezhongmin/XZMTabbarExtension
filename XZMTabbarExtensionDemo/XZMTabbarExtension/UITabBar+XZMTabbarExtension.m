@@ -6,7 +6,7 @@
 //  Copyright © 2015年 Mac_Duke. All rights reserved.
 //
 
-#import "XZMTabbarExtension.h"
+#import "UITabBar+XZMTabbarExtension.h"
 #import "UIView+XZMTabbarExtension.h"
 #import <objc/runtime.h>
 
@@ -152,7 +152,7 @@ static NSString *AssociatedButtonKey;
     return nil;
 }
 
-- (void)configTabBarOfCustomButton:(UIButton <XZMCustomButton> *_Nullable(^_Nullable)())configCustomButtonBlock {
+- (void)duke_configTabBarOfCustomButton:(UIButton <XZMCustomButton> *_Nullable(^_Nullable)())configCustomButtonBlock {
     if (configCustomButtonBlock) {
         UIButton <XZMCustomButton> *customButton = configCustomButtonBlock();
         if (!customButton) return;
@@ -197,7 +197,7 @@ static NSString *AssociatedButtonKey;
 @end
 
 @implementation UIButton (XZMCustomButton)
-- (void)setTabBarIndex:(NSInteger)index {
+- (void)duke_setTabBarIndex:(NSInteger)index {
     if (XZMCustomButtonIndex != index) {
         [self willChangeValueForKey:@"index"];
         XZMCustomButtonIndex = index;
@@ -205,7 +205,7 @@ static NSString *AssociatedButtonKey;
     }
 }
 
-- (void)setCenterOffsetY:(CGFloat)offsetY {
+- (void)duke_setCenterOffsetY:(CGFloat)offsetY {
     if (XZMCustomButtonOffsetY != offsetY) {
         [self willChangeValueForKey:@"offsetY"];
         XZMCustomButtonOffsetY = offsetY;

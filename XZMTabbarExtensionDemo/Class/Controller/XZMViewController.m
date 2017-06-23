@@ -7,7 +7,7 @@
 //
 
 #import "XZMViewController.h"
-#import "UITabBarItem+XZMTabBadgePoint.h"
+#import "XZMTabbarExtension.h"
 
 @interface XZMViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLable;
@@ -20,19 +20,10 @@
     [super viewDidLoad];
     
     self.titleLable.text = self.title;
-   
-    [self.navigationController.tabBarItem setBadgeValue:@"3"];
     
-    if ([self.title isEqualToString:@"同城"]) {
-
-        [self.navigationController.tabBarItem duke_setBadgePointHidden:NO];
-        
-        [self.navigationController.tabBarItem duke_setBadgePointRadius:5.5];
-
-        [self.navigationController.tabBarItem setBadgeValue:nil];
+    if ([self.title isEqualToString:@"同城"] || [self.title isEqualToString:@"我的"]) {
+        [self.navigationController.tabBarItem duke_setBadgePointColor:[UIColor blueColor]];
     }
-    
-    NSLog(@"%zd", self.navigationController.tabBarItem.duke_badgePointHidden);
     
     switch (self.tabBarController.selectedIndex) {
         case 0:

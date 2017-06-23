@@ -7,7 +7,7 @@
 //
 
 
-///****** 史上最简单的定制tabBar个性化按钮 只需要一个方法 github: https://github.com/xiezhongmin/XZMTabbarExtension
+///****** 史上最简单的定制tabBar个性化按钮 只需要一个方法 github: https://github.com/xiezhongmin/XZMTabbarExtension *******//
 
 #import "AppDelegate.h"
 #import "XZMTabBarViewController.h"
