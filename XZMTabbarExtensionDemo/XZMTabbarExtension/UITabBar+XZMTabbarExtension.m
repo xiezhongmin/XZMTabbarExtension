@@ -159,7 +159,6 @@ static NSString *AssociatedButtonKey;
         
         self.customButton = customButton;
         [self addSubview:self.customButton];
-        [self.customButton sizeToFit];
     }
 }
 
