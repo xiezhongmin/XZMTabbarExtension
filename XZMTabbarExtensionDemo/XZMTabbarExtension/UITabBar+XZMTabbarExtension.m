@@ -83,9 +83,11 @@ static NSString *AssociatedButtonKey;
                                            );
     } else { // 默认设置为中间
         if (self.items.count % 2 != 0) {
-            [NSException raise:@"XZMTabbarExtension" format:@"如果UITabbarController的ChildViewControllers个数是奇数，你必须通过setTabBarIndex:来指定customButton的位置"];
+             NSLog(@"error: 如果UITabbarController的ChildViewControllers个数是奇数，你必须通过setTabBarIndex:来指定customButton的位置");
+            return;
+        } else {
+            XZMCustomButtonIndex = self.items.count * 0.5;
         }
-        XZMCustomButtonIndex = self.items.count * 0.5;
     }
     
     NSArray *sortedSubviews = [self sortedSubviews];
